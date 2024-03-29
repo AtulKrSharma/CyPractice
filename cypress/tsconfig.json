@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["es5", "dom"],
+    "lib": ["es5", "dom", "es2015"],
     "types": ["cypress", "node"]
   },
   "include": ["**/*.ts", "**/*.ts", "../cypress.d.ts"],
   "module": "commonjs",
   "moduleResolution": "node",
-  "preserveValueImports": false
+  "preserveValueImports": false,
+  "allowJs": true,
+  "noEmit": true
 }

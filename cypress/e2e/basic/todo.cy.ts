@@ -20,7 +20,9 @@ describe('example to-do app', () => {
     cy.visit('https://example.cypress.io/todo');
   });
 
-  it('my dummy test case', () => {});
+  it('my dummy test case', () => {
+    cy.addAxeCode();
+  });
 
   it('displays two todo items by default', () => {
     // We use the `cy.get()` command to get all elements that match the selector.
