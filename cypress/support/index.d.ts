@@ -67,5 +67,13 @@ declare namespace Cypress {
     addAxeCode(): Chainable<any>;
 
     typeTab(shiftKey: string, ctrlKey: string): Chainable<any>;
+
+    loginViaUi(user: {
+      email: string;
+      password: string;
+      name: string;
+    }): Chainable<any>;
+
+    logout(): Chainable<any>;
   }
 }
