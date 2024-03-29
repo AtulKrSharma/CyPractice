@@ -57,5 +57,7 @@ declare namespace Cypress {
      *  cy.v()
      */
     addAxeCode(): Chainable<any>;
+
+    typeTab(shiftKey: string, ctrlKey: string): Chainable<any>;
   }
 }
