@@ -17,7 +17,17 @@ describe('example to-do app', () => {
     // so we must tell it to visit our website with the `cy.visit()` command.
     // Since we want to visit the same URL at the start of all our tests,
     // we include it in our beforeEach function so that it runs before each test
-    cy.visit('https://example.cypress.io/todo');
+    cy.visit('https://demoblaze.com/');
+    cy.getCookie('user');
+    cy.setCookie('heroName', 'atul');
+  });
+
+  it.only('my dummy test ', () => {
+    cy.log('before');
+    cy.parentLogin('Atul', 'Sharma');
+    cy.setSessionStorage('cyPress', '3215');
+    cy.log('after');
+    cy.getSessionStorage('cyPress');
   });
 
   it('displays two todo items by default', () => {

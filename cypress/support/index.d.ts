@@ -37,6 +37,14 @@
 
 declare namespace Cypress {
   interface Chainable<Subject> {
+    getSessionStorage(key: string): Chainable<any>;
+    setSessionStorage(key: string, value: string): Chainable<any>;
+
+    checkToken(token: string): Chainable<any>;
+    clickLink(lbl: string): Chainable<any>;
+    login(email: string, password: string);
+
+    parentLogin(email: string, password: string): Chainable<any>;
     /**
      * Create several Todo items via UI
      * @example

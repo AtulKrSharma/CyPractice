@@ -10,8 +10,40 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
+
+Cypress.Commands.add('getSessionStorage', (key) => {
+  cy.window().then((window) => {
+    cy.log(`keyValue: ${window.sessionStorage.getItem(key)}`);
+  });
+});
+
+Cypress.Commands.add('setSessionStorage', (key, value) => {
+  cy.window().then((window) => {
+    window.sessionStorage.setItem(key, value);
+  });
+});
+
+Cypress.Commands.add('checkToken', (token) => {
+  cy.window().its('localStorage.token').should('eq', token);
+});
+
+Cypress.Commands.add('parentLogin', (email, password) => {
+  cy.log(`Combo: ${email} & ${password}`);
+});
+
+Cypress.Commands.add('clickLink', (lbl) => {
+  cy.get('a').contains(lbl, { matchCase: false }).click({ force: true });
+});
+
+Cypress.Commands.add('login', (email, pw) => {
+  cy.visit('/login'); // Visit the login page
+  cy.get('#email').type(email); // Enter the email
+  cy.get('#password').type(pw); // Enter the password
+  cy.get('form').submit(); // Submit the login form
+});
+
+//function (a,b){return a+b}
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })

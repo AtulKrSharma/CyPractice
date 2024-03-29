@@ -19,7 +19,7 @@ module.exports = defineConfig({
     FOO: 'bar',
   },
   e2e: {
-    baseUrl: 'https://mail.yahoo.com',
+    baseUrl: 'www.demoblaze.com',
   },
 
   e2e: {
@@ -28,5 +28,7 @@ module.exports = defineConfig({
     },
     experimentalRunAllSpecs: true,
     specPattern: 'cypress/e2e/basic/**/*.cy.{js,jsx,ts,tsx}',
+    //https://docs.cypress.io/guides/references/legacy-configuration#blockHosts
+    blockHosts: ['hls.demoblaze.com'],
   },
 });
