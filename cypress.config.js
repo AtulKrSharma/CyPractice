@@ -15,12 +15,18 @@ module.exports = defineConfig({
   trashAssetsBeforeRuns: true,
   video: true,
   waitForAnimations: true,
-  specPattern: 'cypress/e2e/basic/**/*.cy.{js,jsx,ts,tsx}',
+  env: {
+    FOO: 'bar',
+  },
+  e2e: {
+    baseUrl: 'https://mail.yahoo.com',
+  },
 
   e2e: {
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
     },
     experimentalRunAllSpecs: true,
+    specPattern: 'cypress/e2e/basic/**/*.cy.{js,jsx,ts,tsx}',
   },
 });
