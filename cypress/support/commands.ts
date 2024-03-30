@@ -187,5 +187,3 @@ Cypress.Commands.add('typeTab', (shiftKey, ctrlKey) => {
     ctrlKey: ctrlKey,
   });
 });
-
-}

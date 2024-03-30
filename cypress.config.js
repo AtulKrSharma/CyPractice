@@ -1,4 +1,5 @@
 const { defineConfig } = require('cypress');
+const csv = require('@fast-csv/parse');
 
 module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
@@ -25,6 +26,23 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
+
+      on('task', {
+        readFromCsv() {
+          return new Promise((resolve) => {
+            let dataArray = [];
+            csv.parseFile('./cypress/fixtures/employees.csv', {
+              headers: true,
+            });
+            // on('before:spec', (data) => {
+            //   dataArray.push(data);
+            // });
+            // on('before:spec', () => {
+            //   resolve(dataArray);
+            // });
+          });
+        },
+      });
     },
     experimentalRunAllSpecs: true,
     specPattern: 'cypress/e2e/basic/**/*.cy.{js,jsx,ts,tsx}',
