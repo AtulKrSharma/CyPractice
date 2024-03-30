@@ -2,3 +2,4 @@ node_modules
 cypress/screenshots/**
 cypress/reports/**
 cypress/videos/**
+package-lock.json
