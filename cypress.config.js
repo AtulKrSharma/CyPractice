@@ -1,5 +1,6 @@
 const { defineConfig } = require('cypress');
 const csv = require('@fast-csv/parse');
+const csvdata = require('csvdata');
 
 module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
@@ -26,7 +27,18 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
+      //task for
+      on('task', {
+        log(message) {
+          csvdata.write('./cypress/fixtures/logs.csv', message, {
+            append: true,
+            header: 'stats,numusers',
+          });
+          return null;
+        },
+      });
 
+      //reading from csv using fastcsv- not working
       on('task', {
         readFromCsv() {
           return new Promise((resolve) => {
