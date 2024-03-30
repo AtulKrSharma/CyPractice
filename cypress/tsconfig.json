@@ -2,7 +2,10 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["es5", "dom", "es2015"],
-    "types": ["cypress", "node"]
+    "types": ["cypress", "node"],
+    "paths": {
+      "@utils/dummy": ["./support/utils/dummy.ts"]
+    }
   },
   "include": ["**/*.ts", "**/*.ts", "../cypress.d.ts"],
   "module": "commonjs",
