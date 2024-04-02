@@ -9,14 +9,7 @@ module.exports = defineConfig({
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
   e2e: {
-    setupNodeEvents(on, config) {
-      on('task', {
-        log(message) {
-          console.log(message);
-          return null;
-        },
-      });
-    },
+    setupNodeEvents(on, config) {},
     specPattern: 'cypress/e2e/A-Practicals/**/*.cy.{js,jsx,ts,tsx}',
   },
 });

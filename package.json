@@ -12,13 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^13.7.1",
-    "fast-csv": "^5.0.1",
-    "neat-csv": "^5.2.0",
-    "parse-markdown-table": "^0.0.6"
+    "cypress": "^13.7.1"
   },
   "devDependencies": {
-    "csvdata": "^2.0.0",
     "cypress-mochawesome-reporter": "^3.8.2",
     "typescript": "^5.4.3"
   }
